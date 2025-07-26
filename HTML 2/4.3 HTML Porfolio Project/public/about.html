@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Faisal Alruhaymi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            color: #22232c;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .about-container h1 {
+            color: #1a237e;
+            margin-bottom: 12px;
+        }
+        .about-container p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .about-container .random-fact {
+            color: #b71c1c;
+            font-style: italic;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h1>About Me</h1>
+        <p>Hi! My name is <strong>Faisal Alruhaymi</strong>.</p>
+        <p>I am a web developer, passionate about building modern websites and web apps.</p>
+        <p>I'm also interested in AI agents and automation, always exploring new tech trends.</p>
+        <p>Currently, I work as a <strong>Database Administrator</strong>.</p>
+        <div class="random-fact" id="randomFact"></div>
+    </div>
+    <script>
+        const facts = [
+            "I love learning new programming languages!",
+            "Coffee is my favorite coding companion.",
+            "I enjoy solving logic puzzles in my free time.",
+            "I believe automation makes life easier.",
+            "I like to experiment with AI tools and bots.",
+            "I am always curious about how things work."
+        ];
+        document.getElementById('randomFact').textContent =
+            'Random fact: ' + facts[Math.floor(Math.random() * facts.length)];
+    </script>
+</body>
+</html>
