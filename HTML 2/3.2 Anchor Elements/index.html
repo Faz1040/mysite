@@ -1,0 +1,128 @@
+<h1 class="main" id="typing-title"></h1>
+<!-- Write your code below -->
+ <ol>
+    <li>
+        <a href="http://www.x.com">X.com</a>
+        <p class="x">A dynamic social media platform for sharing thoughts, news, and connecting with people worldwide.</p>
+    </li>
+    <li>
+        <a href="http://www.Netflix.com">Netflix</a>
+        <p class="netflix">The leading streaming service offering a vast library of movies, TV shows, and original content.</p>
+    </li>
+    <li>
+        <a href="http://www.youtube.com">YouTube</a>
+        <p class="youtube">The world's largest video-sharing platform, where you can watch, upload, and discover endless content.</p>
+    </li>
+    <li>
+        <a href="http://www.facebock.com">facebock</a>
+        <p class="facebock">A popular social network for staying in touch, sharing updates, and building communities.</p>
+    </li>
+    <li>
+        <a href="http://www.instagram.com">Instagram</a>
+        <p class="instagram">A creative platform for sharing photos, stories, and connecting with friends and influencers.</p>
+    </li>
+ </ol>
+
+<style>
+    body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    background-size: cover;
+}
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+    .main {
+        color: rgb(46, 8, 239);
+        font-size: 3em;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+    .main:hover {
+        color: rgb(239, 8, 46);
+        transform: scale(1.1);
+    }
+    .x {
+        color: #1a237e;
+    }
+    .netflix {
+        color: #b71c1c;
+    }
+    .youtube {
+        color: #263238;
+    }
+    .facebock {
+        color: #004d40;
+    }
+    .instagram {
+        color: #4e342e;
+    }
+    ol {
+        
+        color: rgb(46, 8, 239);
+        margin-top: 32px;
+        font-size: 1.5em;
+    }
+    ol li {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+</style>
+<script>
+const title = "My top 5 Favourite Websites";
+const words = title.split(" ");
+const h1 = document.getElementById("typing-title");
+let i = 0;
+function typeWord() {
+    if (i < words.length) {
+        h1.textContent += (i === 0 ? "" : " ") + words[i];
+        i++;
+        setTimeout(typeWord, 400);
+    } else {
+        setTimeout(() => {
+            h1.textContent = "";
+            i = 0;
+            typeWord();
+        }, 1000);
+    }
+}
+typeWord();
+
+// Reveal list items one by one and type paragraphs
+const listItems = document.querySelectorAll('ol li');
+const paragraphs = document.querySelectorAll('ol li p');
+listItems.forEach(li => li.style.opacity = 0);
+paragraphs.forEach(p => p.textContent = "");
+
+const paragraphTexts = [
+    "A dynamic social media platform for sharing thoughts, news, and connecting with people worldwide.",
+    "The leading streaming service offering a vast library of movies, TV shows, and original content.",
+    "The world's largest video-sharing platform, where you can watch, upload, and discover endless content.",
+    "A popular social network for staying in touch, sharing updates, and building communities.",
+    "A creative platform for sharing photos, stories, and connecting with friends and influencers."
+];
+
+let liIndex = 0;
+function showNextLi() {
+    if (liIndex < listItems.length) {
+        listItems[liIndex].style.opacity = 1;
+        typeParagraph(liIndex, 0);
+    }
+}
+function typeParagraph(idx, charIdx) {
+    if (charIdx < paragraphTexts[idx].length) {
+        paragraphs[idx].textContent += paragraphTexts[idx][charIdx];
+        setTimeout(() => typeParagraph(idx, charIdx + 1), 20);
+    } else {
+        liIndex++;
+        setTimeout(showNextLi, 600);
+    }
+}
+showNextLi();
+</script>
